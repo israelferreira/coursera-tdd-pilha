@@ -2,11 +2,11 @@ package israelferreira;
 
 public class Pilha {
 
-    private Object elemento;
-    private int quantidade;
+    private Object[] elementos = new Object[10];
+    private int quantidade = 0;
 
     public boolean estaVazia() {
-        return (elemento == null);
+        return quantidade == 0;
     }
 
     public int tamanho() {
@@ -14,12 +14,17 @@ public class Pilha {
     }
 
     public void empilha(Object elemento) {
-        this.elemento = elemento;
+        this.elementos[quantidade] = elemento;
         quantidade++;
     }
 
     public Object topo() {
-        return elemento;
+        return elementos[quantidade-1];
     }
 
+    public Object desempilha() {
+       Object topo = topo();
+       quantidade--;
+       return topo;
+    }
 }
